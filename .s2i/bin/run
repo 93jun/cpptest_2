@@ -5,3 +5,6 @@ cd /tmp/src
 echo "hello"
 ls
 chmod +x /tmp/src/out
+while true
+do sleep 30
+done
