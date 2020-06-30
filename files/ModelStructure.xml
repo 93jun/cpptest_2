@@ -1,0 +1,27 @@
+
+<ModelStructure MsgType="S_CLIENT" PortValue="IO_Type">
+  <NModel Name="test.xml">
+    <Component Name="Trans" Type="Atomic" Class="C_Transducer">
+      <Attribute Name="MaxCustomers" Type="int" Value="100" />
+    </Component>
+    <Component Name="Proc" Type="Atomic" Class="C_Processor">
+      <Attribute Name="ID" Type="int" Value="0" />
+      <Attribute Name="ProcType" Type="int" Value="0" />
+    </Component>
+    <Component Name="Gen" Type="Atomic" Class="C_Generator">
+      <Attribute Name="DistributionParameter" Type="int" Value="1" />
+      <Attribute Name="AutonomousVehicleRatio" Type="int" Value="5" />
+      <Attribute Name="ElectronicPaymentRatio" Type="int" Value="5" />
+    </Component>
+    <Component Name="Buf" Type="Atomic" Class="C_Buffer">
+      <Attribute Name="ID" Type="int" Value="0" />
+    </Component>
+    <Coupling From="Gen" FromP="pout_bufout" To="Buf" ToP="pin_genin" />
+    <Coupling From="Buf" FromP="pout_procout" To="Proc" ToP="pin_bufin" />
+    <Coupling From="Proc" FromP="pout_transout" To="Trans" ToP="pin_procin" />
+    <Coupling From="Trans" FromP="pout_stop" To="Gen" ToP="pin_stop" />
+    <Coupling From="Proc" FromP="pout_init" To="Gen" ToP="pin_init" />
+    <Coupling From="Proc" FromP="pout_done" To="Buf" ToP="pin_ready" />
+    <Coupling From="Buf" FromP="pout_genout" To="Gen" ToP="pin_bufin" />
+  </NModel>
+</ModelStructure>
