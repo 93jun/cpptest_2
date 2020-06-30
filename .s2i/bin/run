@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 pwd
+ls
 echo "hello"
 /tmp/src/out
