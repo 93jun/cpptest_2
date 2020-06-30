@@ -1,6 +1,5 @@
-
-
 pwd
 ls
 cd /tmp/src
+ls
 make
