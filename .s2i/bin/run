@@ -1,5 +1,8 @@
 #!/bin/sh
 pwd
 ls
+cd /tmp/src
 echo "hello"
+ls
+chmod +x /tmp/src/out
 /tmp/src/out
